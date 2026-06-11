@@ -1,0 +1,51 @@
+{% extends '_layouts/cp.twig' %}
+
+{% set ns = 'update-permissions-reminder' %}
+{% set title = 'Permission Reminders'|t(ns) %}
+
+{% block content %}
+    {% if reminders|length %}
+        <p>{{ 'These schema changes may require you to update user group permissions. New sections, volumes, groups and plugins are not granted to existing user groups automatically.'|t(ns) }}</p>
+
+        <table class="data fullwidth">
+            <thead>
+                <tr>
+                    <th scope="col">{{ 'Change'|t(ns) }}</th>
+                    <th scope="col">{{ 'When'|t(ns) }}</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reminder in reminders %}
+                    <tr data-id="{{ reminder.id }}">
+                        <td>{{ reminder.message }}</td>
+                        <td class="light">{{ reminder.dateCreated ? reminder.dateCreated|datetime('short') : '' }}</td>
+                        <td class="thin">
+                            <form method="post" accept-charset="UTF-8">
+                                {{ csrfInput() }}
+                                {{ actionInput('update-permissions-reminder/reminders/dismiss') }}
+                                {{ redirectInput('update-permissions-reminder') }}
+                                {{ hiddenInput('id', reminder.id) }}
+                                <button type="submit" class="btn small">{{ 'Dismiss'|t(ns) }}</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="buttons" style="margin-top: 16px;">
+            <a class="btn submit" href="{{ url('settings/users') }}">{{ 'Review user permissions'|t(ns) }}</a>
+            <form method="post" accept-charset="UTF-8" style="display:inline-block;">
+                {{ csrfInput() }}
+                {{ actionInput('update-permissions-reminder/reminders/dismiss-all') }}
+                {{ redirectInput('update-permissions-reminder') }}
+                <button type="submit" class="btn">{{ 'Dismiss all'|t(ns) }}</button>
+            </form>
+        </div>
+    {% else %}
+        <div class="zilch">
+            <p>{{ 'No outstanding reminders. Everything is up to date.'|t(ns) }}</p>
+        </div>
+    {% endif %}
+{% endblock %}

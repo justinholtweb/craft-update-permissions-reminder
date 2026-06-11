@@ -1,0 +1,75 @@
+{% import '_includes/forms.twig' as forms %}
+
+{% set ns = 'update-permissions-reminder' %}
+
+<h2>{{ 'Display'|t(ns) }}</h2>
+
+{{ forms.lightswitchField({
+    label: 'Show sticky reminder bar'|t(ns),
+    id: 'enableStickyBar',
+    name: 'settings[enableStickyBar]',
+    on: settings.enableStickyBar,
+    instructions: 'Show a bar at the bottom of the control panel for admins when there are outstanding changes.'|t(ns),
+}) }}
+
+{{ forms.lightswitchField({
+    label: 'Show reminder modal'|t(ns),
+    id: 'enableModal',
+    name: 'settings[enableModal]',
+    on: settings.enableModal,
+    instructions: 'Allow a modal that lists every outstanding change. Opens from the sticky bar, or automatically if the bar is disabled.'|t(ns),
+}) }}
+
+<hr>
+
+<h2>{{ 'Watched changes'|t(ns) }}</h2>
+<p class="light">{{ 'Choose which schema changes should trigger a reminder. Each of these can introduce new permissions that existing user groups will not have.'|t(ns) }}</p>
+
+{{ forms.lightswitchField({
+    label: 'New sections'|t(ns),
+    id: 'watchSections',
+    name: 'settings[watchSections]',
+    on: settings.watchSections,
+}) }}
+
+{{ forms.lightswitchField({
+    label: 'New entry types'|t(ns),
+    id: 'watchEntryTypes',
+    name: 'settings[watchEntryTypes]',
+    on: settings.watchEntryTypes,
+}) }}
+
+{{ forms.lightswitchField({
+    label: 'New global sets'|t(ns),
+    id: 'watchGlobalSets',
+    name: 'settings[watchGlobalSets]',
+    on: settings.watchGlobalSets,
+}) }}
+
+{{ forms.lightswitchField({
+    label: 'New asset volumes'|t(ns),
+    id: 'watchVolumes',
+    name: 'settings[watchVolumes]',
+    on: settings.watchVolumes,
+}) }}
+
+{{ forms.lightswitchField({
+    label: 'New category groups'|t(ns),
+    id: 'watchCategoryGroups',
+    name: 'settings[watchCategoryGroups]',
+    on: settings.watchCategoryGroups,
+}) }}
+
+{{ forms.lightswitchField({
+    label: 'New user groups'|t(ns),
+    id: 'watchUserGroups',
+    name: 'settings[watchUserGroups]',
+    on: settings.watchUserGroups,
+}) }}
+
+{{ forms.lightswitchField({
+    label: 'Installed plugins'|t(ns),
+    id: 'watchPlugins',
+    name: 'settings[watchPlugins]',
+    on: settings.watchPlugins,
+}) }}

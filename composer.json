@@ -1,0 +1,62 @@
+{
+    "name": "justinholtweb/craft-update-permissions-reminder",
+    "description": "Reminds Craft CMS admins to review and update user group permissions whenever a new section, global set, asset volume, category group, user group, or plugin is added.",
+    "version": "5.0.0",
+    "type": "craft-plugin",
+    "license": "proprietary",
+    "keywords": [
+        "craft",
+        "craftcms",
+        "craft-plugin",
+        "permissions",
+        "user groups",
+        "admin",
+        "reminder"
+    ],
+    "support": {
+        "email": "justin@justinholt.com",
+        "issues": "https://github.com/justinholtweb/craft-update-permissions-reminder/issues",
+        "source": "https://github.com/justinholtweb/craft-update-permissions-reminder",
+        "docs": "https://github.com/justinholtweb/craft-update-permissions-reminder/blob/main/README.md",
+        "changelog": "https://raw.githubusercontent.com/justinholtweb/craft-update-permissions-reminder/main/CHANGELOG.md"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "craftcms/cms": "^5.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "justinholtweb\\updatepermissionsreminder\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "justinholtweb\\updatepermissionsreminder\\tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "name": "Update Permissions Reminder",
+        "handle": "update-permissions-reminder",
+        "hasCpSettings": true,
+        "hasCpSection": true,
+        "changelogUrl": "https://raw.githubusercontent.com/justinholtweb/craft-update-permissions-reminder/main/CHANGELOG.md",
+        "class": "justinholtweb\\updatepermissionsreminder\\Plugin",
+        "developer": "Justin Holt",
+        "developerUrl": "https://justinholt.com",
+        "documentationUrl": "https://github.com/justinholtweb/craft-update-permissions-reminder/blob/main/README.md"
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    }
+}
