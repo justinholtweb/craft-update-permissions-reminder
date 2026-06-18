@@ -1,5 +1,10 @@
 # Release Notes for Update Permissions Reminder
 
+## 5.0.1 - 2026-06-18
+
+### Added
+- Icon mask for control panel sidebar usage.
+
 ## 5.0.0 - 2026-06-11
 
 ### Added

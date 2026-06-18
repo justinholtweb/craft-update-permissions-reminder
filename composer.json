@@ -1,7 +1,7 @@
 {
     "name": "justinholtweb/craft-update-permissions-reminder",
     "description": "Reminds Craft CMS admins to review and update user group permissions whenever a new section, global set, asset volume, category group, user group, or plugin is added.",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "type": "craft-plugin",
     "license": "proprietary",
     "keywords": [
